@@ -61,3 +61,29 @@ class Student {
 		}
 	}
 }
+
+class Faculty extends Student {
+	List<Student> listaStudenti = new ArrayList<Student>();
+	String imeNaFakultet;
+	
+	Faculty(List<Student> listaStudenti, String imeNaFakultet) {
+		for(int i = 0; i < listaStudenti.size(); i++) {
+			this.listaStudenti[i] = listaStudenti;
+		}
+		this.imeNaFakultet = imeNaFakultet;
+	
+		public double ProsecnaOcenka() {
+			int brojNaProsecniOcenki = 0;
+			double prosecnaOcenka = 0;
+			int suma = 0;
+			for(int i = 0; i < listaStudenti.size(); i++) {
+				prosecnaOcenka = listaStudenti[i].getAverage();
+				suma += prosecnaOcenka;
+				brojNaProsecniOcenki++;
+			}
+			double prosek;
+			prosek = suma / brojNaProsecniOcenki;
+			return prosek;
+		}
+	}
+}
